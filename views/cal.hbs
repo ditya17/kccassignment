@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>HTML Forms</h2>
+
+<form action="/cal/data" method="post">
+<form id="adder" onsubmit="return sum();">
+  <input type="number" name="num1" id='num1' placeholder="enter number">
+  <input type="number" name="num2" id='num2' placeholder="enter number">
+
+  <button id="calc" type="submit">Add</button>
+  <input type="number" name="num3" id="result" readonly placeholder="Result" value="{{z}}">
+  <button type="button" id="btn">Clear</button>
+</form>
+
+<form action="/cal/data" method="post">
+<form id="multiplier" onsubmit="return multiply();">
+  <input type="number" name="num1" id='num1' placeholder="enter number">
+  <input type="number" name="num2" id='num2' placeholder="enter number">
+
+  <button id="calc" type="submit">multiply</button>
+  <input type="number" name="num3" id="result" readonly placeholder="Result" value="{{n}}">
+
+  <button type="button" id="btn">Clear</button>
+</form>
+
+<form action="/cal/data" method="post">
+<form id="subtractor" onsubmit="return subtract();">
+  <input type="number" name="num1" id='num1' placeholder="enter number">
+  <input type="number" name="num2" id='num2' placeholder="enter number">
+
+  <button id="calc" type="button">subtract</button>
+  <input type="number" name="num3" id="result" readonly placeholder="Result" value="{{m}}">
+
+  <button type="button" id="btn">Clear</button>
+</form>
+
+
+  
+
+<p>I have a slow processing.</p>
+<script>
+    $("#calc").click(function(){
+  $.ajax({url: "cal/data", success: function(z) {
+    console.log(z);
+
+  }});
+});
+</script>
+</body>
+</html>
+
+
+
+
